@@ -2,37 +2,24 @@
 
 body {
   font-family: "Arimo", sans-serif;
-  font-size: 400;
-  font-style: unset;
+  font-weight: 400;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   height: 100vh;
-
   background: linear-gradient(-45deg, #280781, #07a5ff, #00c9a7, #ff5e7e);
   background-size: 400% 400%;
   animation: gradientMove 15s ease infinite;
 }
 
 @keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-header {
-  flex-wrap: nowrap;
-}
-
-header,
-footer {
+header, footer {
   background-color: transparent;
   color: #ffffff;
   text-align: center;
@@ -44,7 +31,6 @@ main {
   flex: 1;
   display: flex;
   justify-content: center;
-  padding: 0;
   overflow: hidden;
 }
 
@@ -106,7 +92,6 @@ main {
 }
 
 #input-wrapper {
-  border-radius: 0px;
   display: flex;
   gap: 0.5rem;
   padding: 0.75rem;
@@ -144,20 +129,7 @@ main {
   background-color: #078b49;
 }
 
-#clear-button {
-  align-self: center;
-  padding: 0.5rem 1rem;
-  background-color: #be0000;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-  margin: 0.5rem auto;
-}
-
-/* RESPONSIVO */
+/* Responsivo */
 @media (max-width: 768px) {
   .bubble {
     max-width: 85%;
@@ -189,112 +161,59 @@ main {
 }
 
 .footer-content {
-    display: flex;
-    justify-content: center; /* Centraliza tudo horizontalmente */
-    align-items: center;
-    padding: 1em 2em;
-    position: relative;
-  }
-  
-  .text-container {
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.3rem;
-  }
-  
-  .text-container p {
-    margin: 0;
-    font-size: 0.9rem;
-  }
-  
-  /* Fixa as logos no canto direito */
-  .logo-container {
-    position: absolute;
-    right: 2em;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 5px 10px;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 2em;
+  position: relative;
+}
 
+.text-container {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
+}
 
+.text-container p {
+  margin: 0;
+  font-size: 0.9rem;
+}
 
-/* Config logo 1 */
+.logo-container {
+  position: absolute;
+  right: 2em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 5px 10px;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
 
-.logo1 {
+.logo1, .logo2, .logo3 {
   width: 50px;
   height: 50px;
-  margin-left: 10px;
   border-radius: 50%;
   object-fit: cover;
   transition: transform 0.3s ease;
-
   border: 2px solid #000;
   background-color: rgb(0, 0, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
+.logo1:hover, .logo2:hover, .logo3:hover {
+  transform: scale(1.1);
+}
 
+footer a {
+  color: #e90c0c;
+  text-decoration: none;
+}
 
-/* Config logo 2 */
-.logo2 {
-    width: 50px;
-    height: 50px;
-    margin-left: 10px;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  
-    border: 2px solid #000;
-    background-color: rgb(0, 0, 0);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  }
-
-
-
-   /* Config logo 3 */
-  .logo3 {
-    width: 50px;
-    height: 50px;
-    margin-left: 10px;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  
-    border: 2px solid #000;
-    background-color: rgb(0, 0, 0);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  }
-
-
-
-
-  /* ANIMACAO DO LOGO 1 */
-  .logo1:hover {
-    transform: scale(1.1);
-  }
-  
-  .textLogo {
-    font-size: 20px;
-  }
-  
-  footer a {
-    color: #e90c0c;
-    text-decoration: none;
-  }
-  
-  footer a:hover {
-    text-decoration: underline;
-
-
-  }
-
-
- 
+footer a:hover {
+  text-decoration: underline;
+}

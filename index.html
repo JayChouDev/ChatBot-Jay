@@ -6,20 +6,15 @@
   <title>GPT-JAY</title>
   <script src="https://js.puter.com/v2/" defer></script>
   <link rel="stylesheet" href="style.css">
-  
 </head>
 
 <body>
   <header>
     <h1>GPT-JAYCHOU</h1>
-   
-      
     <h2>Chatbot</h2>
-    
   </header>
   
   <main>
-  
     <section id="chat-container">
       <div id="chat-box"></div>
 
@@ -27,116 +22,30 @@
         <textarea id="user-input" placeholder="Digite sua mensagem..." rows="1"></textarea>
         <button id="send-button">Enviar</button>
       </div>
-      
     </section>
-   
   </main>
 
   <footer>
+    <div class="text-container">
+      <p>2025 GPT-JAY Todos os direitos reservados.</p>
+      <p>Desenvolvido por JayChouDev</p>
+      <p>Versão 1.0</p>
+    </div>
 
-
-    <div class="footer-content">
-      <div class="text-container">
-        <p>2025 GPT-JAY Todos os direitos reservados.</p>
-        <footer class="footer-text">
-          <p>Desenvolvido por JayChouDev</p>
-          <p>Versão 1.0</p>
-      </div>
-      <div class="logo-container">
-        <a href="https://www.linkedin.com/in/kaua_mh1/" target="_blank">
-        <img  src="linkd.jpg" alt="Logo" class="logo1" />
+    <div class="logo-container">
+      <a href="https://www.linkedin.com/in/kaua_mh1/" target="_blank">
+        <img src="linkd.jpg" alt="LinkedIn" class="logo1" />
       </a>
       <a href="https://github.com/JayChouDev" target="_blank">
-        <img src="github.png" alt="Logo" class="logo1" />
+        <img src="github.png" alt="GitHub" class="logo1" />
       </a>
-
-        <a href="https://www.instagram.com/kaua_mh1/" target="_blank">
-
-          <img src="logoinstagram.png" alt="logo3" class="logo1" />
-          <img src="pitbul.jpg" alt="Logo" class="logo3" />
-        </a>
-
-
-      </div>
+      <a href="https://www.instagram.com/kaua_mh1/" target="_blank">
+        <img src="logoinstagram.png" alt="Instagram" class="logo1" />
+      </a>
+      <img src="pitbul.jpg" alt="Logo Pitbull" class="logo3" />
     </div>
   </footer>
-  
 
-
-
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const sendButton = document.getElementById("send-button");
-      const userInput = document.getElementById("user-input");
-      const chatBox = document.getElementById("chat-box");
-  
-      function createMessageElement(content, sender) {
-        const messageWrapper = document.createElement("div");
-        messageWrapper.classList.add("message", sender);
-  
-        const messageContent = document.createElement("div");
-        messageContent.classList.add("bubble");
-        messageContent.textContent = content;
-  
-        messageWrapper.appendChild(messageContent);
-        return messageWrapper;
-      }
-  
-      function isMensagemSimples(texto) {
-        const mensagensSimples = [
-          "oi", "ola", "olá", "e aí", "tudo bem", "tudo bom",
-          "bom dia", "boa tarde", "boa noite", "salve", "oii", "oiii"
-        ];
-        const normalizado = texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // tira acentos
-        return mensagensSimples.includes(normalizado);
-      }
-  
-      async function sendMessage() {
-        const message = userInput.value.trim();
-        if (!message) return;
-        userInput.value = "";
-  
-        const userMsg = createMessageElement(message, "user");
-        chatBox.appendChild(userMsg);
-  
-        const loadingMsg = createMessageElement("Digitando...", "bot");
-        chatBox.appendChild(loadingMsg);
-        chatBox.scrollTop = chatBox.scrollHeight;
-  
-        // Só ativa o timeout se a mensagem não for simples
-        let loadingUpdated = false;
-        let changeTypingTimeout;
-  
-        if (!isMensagemSimples(message)) {
-          changeTypingTimeout = setTimeout(() => {
-            loadingMsg.querySelector(".bubble").textContent = "Buscando fontes confiáveis...";
-            loadingUpdated = true;
-          }, 1000);
-        }
-  
-        try {
-          const response = await puter.ai.chat("Responda apenas em português: " + message);
-          clearTimeout(changeTypingTimeout);
-          loadingMsg.querySelector(".bubble").textContent = response;
-        } catch (err) {
-          clearTimeout(changeTypingTimeout);
-          loadingMsg.querySelector(".bubble").textContent = "Erro: " + err.message;
-        }
-  
-        chatBox.scrollTop = chatBox.scrollHeight;
-      }
-  
-      sendButton.addEventListener("click", sendMessage);
-  
-      userInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-          e.preventDefault();
-          sendMessage();
-        }
-      });
-    });
-  </script>
-  
-  
+  <script src="script.js"></script>
 </body>
 </html>
